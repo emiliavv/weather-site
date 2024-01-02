@@ -264,6 +264,7 @@ button.fahrenheit:hover {
     display: block;
     margin: 0 auto;
     margin-bottom: 15px;
+    padding-top: 15px;
     transition: all 0.3s ease-in-out;
     width: 93%;
 }
