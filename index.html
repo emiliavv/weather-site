@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR Weather Forecast</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="position">
+           <label class="switch">
+            <input type="checkbox" id="dark-mode">
+            <span class="slider round"></span>
+        </label> 
+        </div>
+        <div>
+           <div class="h1"><h1>YOUR Weather Forcast</h1></div>
+        <div class="search">
+            <form>
+                <input type="text" name="search" id="search" placeholder="Search for a city..." autofocus>
+                <input type="submit" value="SEARCH" class="button-submit">
+                <input type="submit" value="Current City" class="button-city">
+            </form>
+        </div>
+        <div class="main-forecast">
+            <div class="main-emoji">
+                <p></p>
+            </div>
+            <div class="city">
+                <span></span>
+            </div>
+            <div class="date">
+                <span></span>
+            </div>
+            <div class="description">
+                
+            </div>
+            <div class="main-temperature">
+                <span class="temp"></span>°<span class="current-unit">C</span>
+            </div>
+            <div class="units">
+                <button class="celcius">C</button> 
+                <span>|</span>
+                <button class="fahrenheit">F</button>
+            </div>
+            <div class="additional-inf">
+                <p>Feels like: <span class="feel"><strong></strong></span>°</p>
+                <p>Humidity: <span class="humidity"><strong></strong></span>%</p>
+                <p>Wind: <span class="wind"><strong></strong></span> km/h</p>
+            </div>
+        </div>
+        <div id="future-forecast">
+            <ul class="ul"></ul>
+        </div>
+    </div>
+    <footer>
+        This project was coded by <a href="#">Emilia Wójcik</a>, code hosted on <a href="#">GitLab</a> and hosted on <a href="#">Netlify</a>.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
+</body>
+</html
