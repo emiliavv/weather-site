@@ -103,12 +103,6 @@ function changeTempToF(event) {
     let temp_feel = document.querySelector(".feel")
     let new_tempFeel = ((temp_feel.textContent* 9/5) + 32)
     temp_feel.innerHTML = new_tempFeel
-    let min_temp = document.querySelector(".daily_temp1")
-    let max_temp = document.querySelector(".daily_temp2")
-    let min_temp_small = ((min_temp.textContent* 9/5) + 32)
-    min_temp.innerHTML = min_temp_small
-    let max_temp_small = ((min_temp.textContent* 9/5) + 32)
-    max_temp.innerHTML = max_temp_small
     fahrenheitButton.disabled = true;
     celciusButton.disabled = false;
 }
@@ -126,13 +120,7 @@ function changeTempToC(event) {
     main_temp.innerHTML = Math.round(new_temp_main)
     let temp_feel = document.querySelector(".feel")
     let new_tempFeel = ((temp_feel.textContent - 32) * 5/9)
-    temp_feel.innerHTML = Math.round(new_tempFeel)
-    let min_temp = document.querySelector(".daily_temp1")
-    let max_temp = document.querySelector(".daily_temp2")
-    let min_temp_small = ((min_temp.textContent* 32) * 5/9)
-    min_temp.innerHTML = min_temp_small
-    let max_temp_small = ((min_temp.textContent* 32) * 5/9)
-    max_temp.innerHTML = max_temp_small
+    temp_feel.innerHTML = Math.round(new_tempFeel)c
     fahrenheitButton.disabled = false;
     celciusButton.disabled = true;
 }
