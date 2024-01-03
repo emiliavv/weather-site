@@ -274,12 +274,12 @@ body.dark-theme #future-forecast {
     color: white;
 }
 
-.future {
+ul {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     justify-content: space-evenly;
     list-style: none;
-    width: 100%;
+
 }
 
 li > * {
@@ -320,4 +320,18 @@ footer a {
     color: #ff0090;
     font-weight: bold;
     letter-spacing: 2px;
+}
+
+a {
+    transition: all 0.5ms ease-in-out;
+}
+
+a:hover {
+    cursor: pointer;
+    opacity: 0.4;
+    size: 120%;
+}
+
+a:visited {
+    opacity: 0.6;
 }

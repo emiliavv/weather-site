@@ -1,3 +1,10 @@
+function startingPage() {
+    find("Kraków")
+    let celciusButton = document.querySelector(".celcius");
+    celciusButton.disabled = true;
+}
+startingPage()
+
 let search_button = document.querySelector(".button-submit")
 search_button.addEventListener("click", search)
 
@@ -12,6 +19,8 @@ function search(event) {
         let key = "fbef01f4et1b02o0d25c27210a43ef3f";
         let api_url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`
         axios.get(api_url).then(show_temperature)
+        let api_url2 = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
+        axios.get(api_url2).then(show_temperature_2)
     }
 }
 
@@ -63,6 +72,8 @@ function find(location){
     let key = "fbef01f4et1b02o0d25c27210a43ef3f"
     let api_url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`
     axios.get(api_url).then(show_temperature)
+    let api_url2 = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
+    axios.get(api_url2).then(show_temperature_2)
 }
 
 let button_location = document.querySelector(".button-city")
@@ -117,30 +128,40 @@ function changeTempToC(event) {
 let celcius = document.querySelector(".celcius")
 celcius.addEventListener("click", changeTempToC)
 
-window.onload = function () {
-    find("Kraków")
-    let celciusButton = document.querySelector(".celcius");
-    celciusButton.disabled = true;
+function getWeekday(timestamp) {
+    let date = new Date(timestamp*1000)
+    let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    return week[date.getDay()]
 }
 
-function show_temperature_2(){
-    weekShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+function getMonth(timestamp) {
+    let date = new Date(timestamp*1000)
+    return date.getMonth()
+}
+
+function getDay(timestamp) {
+    let date = new Date(timestamp*1000)
+    return date.getDay()
+}
+
+function show_temperature_2(response){
+    console.log(response.data.daily)
     let small_forecast = document.querySelector("ul")
     let small_forecast_HTML = ""
-    weekShort.forEach((day)=> {
-        small_forecast_HTML +=
-        `
-            <div class="future">
-                <li>
-                    <p class="day">${day}</p>
-                    <p>10/23</p>
-                    <p>☀️</p>
-                    <p><strong>16°C </strong>/ 23°C</p>
-                </li>
-            <div>
-        `
+
+    response.data.daily.forEach(function (day, index) {
+        if (index>0 & index<6) {
+            small_forecast_HTML +=
+            `
+                    <li>
+                        <p class="day">${getWeekday(day.time)}</p>
+                        <p>${(getDay(day.time))+0}/${(getMonth(day.time))+1}</p>
+                        <p><img src="${day.condition.icon_url}"/ ></p>
+                        <p><strong>${Math.round(day.temperature.minimum)}°C</strong> / ${Math.round(day.temperature.maximum)}°C</p>
+                    </li>
+            `  
+        }
     })
     small_forecast.innerHTML = small_forecast_HTML
 }
 
-show_temperature_2()
