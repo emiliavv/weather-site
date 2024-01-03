@@ -16,7 +16,7 @@ function search(event) {
         alert("You need to insert a city !")
     }
     else {
-        let key = "fbef01f4et1b02o0d25c27210a43ef3f";
+        let key = "1a747f2d7ac32a100bt13fab8776o6ca";
         let api_url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`
         axios.get(api_url).then(show_temperature)
         let api_url2 = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
@@ -69,7 +69,7 @@ dark_mode.addEventListener("change", changeTheme)
 
 function find(location){
     let city = location
-    let key = "fbef01f4et1b02o0d25c27210a43ef3f"
+    let key = "1a747f2d7ac32a100bt13fab8776o6ca"
     let api_url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`
     axios.get(api_url).then(show_temperature)
     let api_url2 = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`
