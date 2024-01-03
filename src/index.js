@@ -103,6 +103,12 @@ function changeTempToF(event) {
     let temp_feel = document.querySelector(".feel")
     let new_tempFeel = ((temp_feel.textContent* 9/5) + 32)
     temp_feel.innerHTML = new_tempFeel
+    let min_temp = document.querySelector(".daily_temp1")
+    let max_temp = document.querySelector(".daily_temp2")
+    let min_temp_small = ((min_temp.textContent* 9/5) + 32)
+    min_temp.innerHTML = min_temp_small
+    let max_temp_small = ((min_temp.textContent* 9/5) + 32)
+    max_temp.innerHTML = max_temp_small
     fahrenheitButton.disabled = true;
     celciusButton.disabled = false;
 }
@@ -121,6 +127,12 @@ function changeTempToC(event) {
     let temp_feel = document.querySelector(".feel")
     let new_tempFeel = ((temp_feel.textContent - 32) * 5/9)
     temp_feel.innerHTML = Math.round(new_tempFeel)
+    let min_temp = document.querySelector(".daily_temp1")
+    let max_temp = document.querySelector(".daily_temp2")
+    let min_temp_small = ((min_temp.textContent* 32) * 5/9)
+    min_temp.innerHTML = min_temp_small
+    let max_temp_small = ((min_temp.textContent* 32) * 5/9)
+    max_temp.innerHTML = max_temp_small
     fahrenheitButton.disabled = false;
     celciusButton.disabled = true;
 }
@@ -157,7 +169,7 @@ function show_temperature_2(response){
                         <p class="day">${getWeekday(day.time)}</p>
                         <p>${(getDay(day.time))+0}/${(getMonth(day.time))+1}</p>
                         <p><img src="${day.condition.icon_url}"/ ></p>
-                        <p><strong>${Math.round(day.temperature.minimum)}°C</strong> / ${Math.round(day.temperature.maximum)}°C</p>
+                        <p><strong><span class="daily_temp1">${Math.round(day.temperature.minimum)}</span>°</strong> / <span class="daily_temp2">${Math.round(day.temperature.maximum)}°</span></p>
                     </li>
             `  
         }
