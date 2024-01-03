@@ -141,7 +141,7 @@ function getMonth(timestamp) {
 
 function getDay(timestamp) {
     let date = new Date(timestamp*1000)
-    return date.getDay()
+    return date.getUTCDate()
 }
 
 function show_temperature_2(response){
