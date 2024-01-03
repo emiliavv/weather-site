@@ -120,7 +120,7 @@ function changeTempToC(event) {
     main_temp.innerHTML = Math.round(new_temp_main)
     let temp_feel = document.querySelector(".feel")
     let new_tempFeel = ((temp_feel.textContent - 32) * 5/9)
-    temp_feel.innerHTML = Math.round(new_tempFeel)c
+    temp_feel.innerHTML = Math.round(new_tempFeel)
     fahrenheitButton.disabled = false;
     celciusButton.disabled = true;
 }
@@ -145,7 +145,6 @@ function getDay(timestamp) {
 }
 
 function show_temperature_2(response){
-    console.log(response.data.daily)
     let small_forecast = document.querySelector("ul")
     let small_forecast_HTML = ""
 
@@ -157,7 +156,7 @@ function show_temperature_2(response){
                         <p class="day">${getWeekday(day.time)}</p>
                         <p>${(getDay(day.time))+0}/${(getMonth(day.time))+1}</p>
                         <p><img src="${day.condition.icon_url}"/ ></p>
-                        <p><strong><span class="daily_temp1">${Math.round(day.temperature.minimum)}</span>°</strong> / <span class="daily_temp2">${Math.round(day.temperature.maximum)}°</span></p>
+                        <p><strong>${Math.round(day.temperature.minimum)}°C</strong> / ${Math.round(day.temperature.maximum)}°C</p>
                     </li>
             `  
         }
