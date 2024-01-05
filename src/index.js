@@ -82,6 +82,7 @@ button_location.addEventListener("click", (event) => {
     navigator.geolocation.getCurrentPosition(position => {
     const {latitude, longitude} = position.coords;
 let url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+console.log(url)
 fetch(url).then(res => res.json()).then(data => {
     if (find(data.address.city)===undefined) {
         find(data.address.city)
